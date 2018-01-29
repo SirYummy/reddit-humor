@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import { CSSTransition } from 'react-transition-group';
@@ -20,6 +21,38 @@ const styles = theme => ({
 })
 
 class Post extends Component {
+
+  static propTypes = {
+    classes : PropTypes.shape({
+      content : PropTypes.string.isRequired,
+      title : PropTypes.string.isRequired
+    }).isRequired,
+    post : PropTypes.shape({
+      data : PropTypes.shape({
+        id : PropTypes.string,
+        preview : PropTypes.shape({
+          images : PropTypes.arrayOf(PropTypes.shape({
+            id : PropTypes.string.isRequired,
+            resolutions : PropTypes.array,
+            variants : PropTypes.shape({
+              gif : PropTypes.shape({
+                source : PropTypes.string
+              })
+            }),
+            source : PropTypes.object
+          }).isRequired).isRequired
+        }).isRequired,
+        title : PropTypes.string
+      }).isRequired,
+      kind : PropTypes.string.isRequired
+    })
+  }
+
+  // TODO: Add default props.
+  static defaultProps = {
+
+  }
+  
 
   mediaEl = null;
   scrollIntervalId = null;
