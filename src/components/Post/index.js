@@ -22,38 +22,6 @@ const styles = theme => ({
 
 class Post extends Component {
 
-  static propTypes = {
-    classes : PropTypes.shape({
-      content : PropTypes.string.isRequired,
-      title : PropTypes.string.isRequired
-    }).isRequired,
-    post : PropTypes.shape({
-      data : PropTypes.shape({
-        id : PropTypes.string,
-        preview : PropTypes.shape({
-          images : PropTypes.arrayOf(PropTypes.shape({
-            id : PropTypes.string.isRequired,
-            resolutions : PropTypes.array,
-            variants : PropTypes.shape({
-              gif : PropTypes.shape({
-                source : PropTypes.object
-              })
-            }),
-            source : PropTypes.object
-          }).isRequired).isRequired
-        }).isRequired,
-        title : PropTypes.string
-      }).isRequired,
-      kind : PropTypes.string.isRequired
-    })
-  }
-
-  // TODO: Add default props.
-  static defaultProps = {
-
-  }
-  
-
   mediaEl = null;
   scrollIntervalId = null;
   setTimeoutIdToTop = null;
@@ -144,5 +112,37 @@ class Post extends Component {
     )
   }
 } 
+
+
+Post.propTypes = {
+  classes : PropTypes.shape({
+    content : PropTypes.string.isRequired,
+    title : PropTypes.string.isRequired
+  }).isRequired,
+  post : PropTypes.shape({
+    data : PropTypes.shape({
+      id : PropTypes.string,
+      preview : PropTypes.shape({
+        images : PropTypes.arrayOf(PropTypes.shape({
+          id : PropTypes.string.isRequired,
+          resolutions : PropTypes.array,
+          variants : PropTypes.shape({
+            gif : PropTypes.shape({
+              source : PropTypes.object
+            })
+          }),
+          source : PropTypes.object
+        }).isRequired).isRequired
+      }).isRequired,
+      title : PropTypes.string
+    }).isRequired,
+    kind : PropTypes.string.isRequired
+  })
+}
+
+// TODO: Add default props.
+Post.defaultProps = {
+
+}
 
 export default withStyles(styles)(Post);
