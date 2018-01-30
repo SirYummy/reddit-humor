@@ -1,18 +1,18 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {expect} from 'code';
+import {expect} from 'chai';
 import App from './App';
 
 describe('<App/>', () => {
 
-  let appEl;
+  let wrapper;
   
   beforeEach(() => {
-    appEl = shallow(<App />)
+    wrapper = shallow(<App />)
   })
   
   it('returns a function', () => {
-    expect(appEl.type()).to.be.a.function();
+    expect(wrapper.type()).to.be.a('function');
   })
   
 })
