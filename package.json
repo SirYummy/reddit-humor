@@ -27,7 +27,6 @@
   },
   "homepage": "https://aquent-it-solutions.github.io/reddit-humor/",
   "devDependencies": {
-    "babel-plugin-transform-class-properties": "^6.24.1",
     "chai": "^4.1.2",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1"
