@@ -36,7 +36,7 @@ class Post extends Component {
             resolutions : PropTypes.array,
             variants : PropTypes.shape({
               gif : PropTypes.shape({
-                source : PropTypes.string
+                source : PropTypes.object
               })
             }),
             source : PropTypes.object
