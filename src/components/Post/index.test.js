@@ -2,6 +2,7 @@ import React from 'react'
 import { expect } from 'chai'
 import { mount } from 'enzyme'
 import Post from './index'
+import PostProps from './index.props'
 import PostChildren from './index.children'
 
 describe('<Post/>', () => {
@@ -9,38 +10,9 @@ describe('<Post/>', () => {
     describe('when mounted', () => {
         
         let wrapper
-        let expectedProps = {
-            show : true,
-            post : {
-                data : {
-                    id : 'testId',
-                    selftext_html : 'testSelfTextHtml',
-                    preview : {
-                        images : [
-                            {
-                                id : 'testImageId',
-                                resolutions : [],
-                                variants : {
-                                    gif : {
-                                        source : {}
-                                    }
-                                },
-                                source : {}
-                            }
-                        ]
-                    },
-                    title : 'testPostDataTitle',
-                },
-                kind : 'testKind'
-            },
-            classes: {
-                content : 'testContent',
-                title : 'testTitle'
-            }
-        }
         
         beforeEach(() => {   
-            wrapper = mount(<Post {...expectedProps} />)
+            wrapper = mount(<Post {...PostProps} />)
         })
 
         afterEach(() => {
